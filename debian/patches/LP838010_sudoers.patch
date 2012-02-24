@@ -1,0 +1,27 @@
+Index: augeas-0.10.0/lenses/aliases.aug
+===================================================================
+--- augeas-0.10.0.orig/lenses/aliases.aug	(revision 360a1e3b9b4d139414d66ff467d09a7469dde979)
++++ augeas-0.10.0/lenses/aliases.aug	(revision f294581db6761c7fc94f598685d16bf9b66e93ac)
+@@ -39,5 +39,5 @@
+     * without spaces is taken care with <word>
+     *)
+-   let command = /\|([^", \t\n]+|"[^"\n]+")/
++   let command = /(\|([^", \t\n]+|"[^"\n]+"))|("\|[^"\n]+")/
+ 
+    (* Group: Comments and empty lines *)
+Index: augeas-0.10.0/lenses/tests/test_aliases.aug
+===================================================================
+--- augeas-0.10.0.orig/lenses/tests/test_aliases.aug	(revision 3928bc416b4563793066600e616dd5fd66448e0a)
++++ augeas-0.10.0/lenses/tests/test_aliases.aug	(revision f294581db6761c7fc94f598685d16bf9b66e93ac)
+@@ -93,4 +93,11 @@
+         { "value" = "target2" } }
+ 
++  (* Test: Aliases.lns
++     Ticket #229: commands can be fully enclosed in quotes *)
++  test Aliases.lns get "somebody: \"|exit 67\"\n" =
++    { "1"
++        { "name" = "somebody" }
++        { "value" = "\"|exit 67\"" } }
++
+ (* Local Variables: *)
+ (* mode: caml       *)

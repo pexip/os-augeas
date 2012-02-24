@@ -1,0 +1,33 @@
+Index: augeas-0.10.0/src/augeas.c
+===================================================================
+--- augeas-0.10.0.orig/src/augeas.c	2011-12-14 09:56:47.170613958 +0100
++++ augeas-0.10.0/src/augeas.c	2011-12-14 09:57:10.250612994 +0100
+@@ -1637,7 +1637,7 @@
+     ARG_CHECK(flags != 0, aug, "aug_to_xml: FLAGS must be 0");
+     ARG_CHECK(xmldoc == NULL, aug, "aug_to_xml: XMLDOC must be non-NULL");
+ 
+-    if (pathin == NULL || strlen(pathin) == 1) {
++    if (pathin == NULL || strlen(pathin) == 0 || strcmp(pathin, "/") == 0) {
+         pathin = "/*";
+     }
+ 
+Index: augeas-0.10.0/tests/test-api.c
+===================================================================
+--- augeas-0.10.0.orig/tests/test-api.c	2011-12-14 09:57:41.382611692 +0100
++++ augeas-0.10.0/tests/test-api.c	2011-12-14 09:58:03.638610760 +0100
+@@ -435,6 +435,15 @@
+     value = xmlGetProp(xmldoc, BAD_CAST "label");
+     CuAssertStrEquals(tc, "root", (const char*)value);
+ 
++    /* Bug #239 */
++    r = aug_set(aug, "/augeas/context", "/files/etc/passwd");
++    CuAssertRetSuccess(tc, r);
++    r = aug_to_xml(aug, ".", &xmldoc, 0);
++    CuAssertRetSuccess(tc, r);
++    xmldoc = xmlFirstElementChild(xmldoc);
++    value = xmlGetProp(xmldoc, BAD_CAST "label");
++    CuAssertStrEquals(tc, "passwd", (const char*)value);
++
+     aug_close(aug);
+ }
+ 

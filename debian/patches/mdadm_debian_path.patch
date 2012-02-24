@@ -1,0 +1,11 @@
+Index: augeas-0.10.0/lenses/mdadm_conf.aug
+===================================================================
+--- augeas-0.10.0.orig/lenses/mdadm_conf.aug	2011-12-14 09:58:52.570608715 +0100
++++ augeas-0.10.0/lenses/mdadm_conf.aug	2011-12-14 09:59:03.070608275 +0100
+@@ -274,5 +274,6 @@
+            | part_policy )*
+ 
+ let filter     = incl "/etc/mdadm.conf"
++               . incl "/etc/mdadm/mdadm.conf"
+ 
+ let xfm        = transform lns filter

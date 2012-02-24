@@ -1,0 +1,4 @@
+pkg-config_require_libxml2.patch
+libxml2_onechar_path.patch
+mdadm_debian_path.patch
+LP838010_sudoers.patch

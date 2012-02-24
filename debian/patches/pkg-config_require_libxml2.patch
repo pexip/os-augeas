@@ -1,0 +1,12 @@
+Index: augeas-0.10.0/augeas.pc.in
+===================================================================
+--- augeas-0.10.0.orig/augeas.pc.in	2011-12-14 09:55:20.890617567 +0100
++++ augeas-0.10.0/augeas.pc.in	2011-12-14 09:55:39.186616803 +0100
+@@ -6,6 +6,6 @@
+ Name: augeas
+ Version: @VERSION@
+ Description: Augeas configuration editing library
+-Requires:
++Requires.private: libxml-2.0
+ Libs: -L${libdir} -laugeas @LIBS@
+ Cflags: -I${includedir}
