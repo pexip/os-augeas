@@ -1,8 +1,9 @@
 Source: augeas
 Priority: optional
-Maintainer: Raphaël Pinson <raphink@ubuntu.com>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Raphaël Pinson <raphink@ubuntu.com>
 XSBC-Original-Maintainer: Nicolas Valcárcel Scerpella (Canonical) <nicolas.valcarcel@canonical.com> 
-Uploaders: Free Ekanayaka <freee@debian.org>, Micah Anderson <micah@debian.org>
+XSBC-Pexip-Original-Uploaders: Free Ekanayaka <freee@debian.org>, Micah Anderson <micah@debian.org>
 Build-Depends: debhelper (>= 5), autotools-dev, libreadline-dev, chrpath, 
  naturaldocs (>= 1.51-1), texlive-latex-base,
  libxml2-dev, pkg-config
@@ -10,6 +11,7 @@ Standards-Version: 3.9.2
 Section: libs
 Homepage: http://augeas.net/
 DM-Upload-Allowed: yes
+XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
 
 Package: augeas-tools
 Section: admin

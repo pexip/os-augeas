@@ -1,3 +1,9 @@
+augeas (0.10.0-0ubuntu4pexip1) pexip; urgency=low
+
+  * Prepare Pexip packaging
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 24 Dec 2013 13:11:59 +0000
+
 augeas (0.10.0-0ubuntu4) precise; urgency=low
 
   * Add a Depends on libxml2-dev for libaugeas-dev, since it is required by
